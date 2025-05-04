@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  rules: {
+    "@next/next/no-img-element": "off",
+  },
   /* config options here */
   images: {
     remotePatterns: [
