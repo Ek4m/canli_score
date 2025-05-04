@@ -1,14 +1,18 @@
 import { Sofia_Sans } from "next/font/google";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 import { AppHeader, AppFooter } from "@/common/components";
 
 import "./globals.scss";
+import { Metadata } from "next";
 
 const sofiaSans = Sofia_Sans({
   variable: "--font-sofia-sans",
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  description: "CanliScore",
+};
 
 export default function RootLayout({
   children,
@@ -18,11 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sofiaSans.variable} bg-[#111]`}>
-        <AntdRegistry>
-          <AppHeader />
-          {children}
-          <AppFooter />
-        </AntdRegistry>
+        <AppHeader />
+        <div className="px-[8rem]">{children}</div>
+        <AppFooter />
       </body>
     </html>
   );

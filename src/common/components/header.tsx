@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "antd";
 
 import { HeaderLink } from "./headerLink";
 import { MainLogo } from "./mainLogo";
@@ -7,7 +6,7 @@ import { MainLogo } from "./mainLogo";
 export const AppHeader = () => {
   return (
     <header
-      className={`flex justify-between px-8 py-5 bg-[#181818] border-b-1 border-[#414141]`}
+      className={`flex justify-between items-center px-8 py-5 bg-[#181818] border-b-1 border-[#414141]`}
     >
       <div className="flex items-center">
         <MainLogo />
@@ -17,8 +16,8 @@ export const AppHeader = () => {
           <HeaderLink href="/favourites" title="Favourites" />
         </ul>
       </div>
-      <div>
-        <Button className={`!bg-[#1b1b1b] !text-white`}>Log In</Button>
+      <div className="flex">
+        <button className={`!bg-[#1b1b1b] !text-white !ml-2`}>Log In</button>
       </div>
     </header>
   );
