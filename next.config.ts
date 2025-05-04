@@ -4,7 +4,15 @@ const nextConfig: NextConfig = {
   rules: {
     "@next/next/no-img-element": "off",
   },
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/scores",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       new URL(

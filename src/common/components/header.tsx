@@ -2,6 +2,7 @@ import React from "react";
 
 import { HeaderLink } from "./headerLink";
 import { MainLogo } from "./mainLogo";
+import { LoginModal } from "./login";
 
 export const AppHeader = () => {
   return (
@@ -17,7 +18,7 @@ export const AppHeader = () => {
         </ul>
       </div>
       <div className="flex">
-        <button className={`!bg-[#1b1b1b] !text-white !ml-2`}>Log In</button>
+        <LoginModal />
       </div>
     </header>
   );
