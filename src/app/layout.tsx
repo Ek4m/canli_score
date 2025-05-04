@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${sofiaSans.variable} bg-[#111]`}>
         <AppHeader />
-        <div className="px-[8rem]">{children}</div>
+        <div className="px-[10rem]">{children}</div>
         <AppFooter />
       </body>
     </html>
