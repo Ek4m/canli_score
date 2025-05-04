@@ -1,6 +1,7 @@
 import { Sofia_Sans } from "next/font/google";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { AppHeader } from "@/common/components";
+
+import { AppHeader, AppFooter } from "@/common/components";
 
 import "./globals.scss";
 
@@ -16,10 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sofiaSans.variable} bg-[#1b1b1b]`}>
+      <body className={`${sofiaSans.variable} bg-[#111]`}>
         <AntdRegistry>
           <AppHeader />
           {children}
+          <AppFooter />
         </AntdRegistry>
       </body>
     </html>
