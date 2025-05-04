@@ -24,6 +24,8 @@ export default function RootLayout({
       <body className={`${sofiaSans.variable} bg-[#111]`}>
         <AppHeader />
         <div className="px-[10rem]">{children}</div>
+        <br />
+        <br />
         <AppFooter />
       </body>
     </html>
