@@ -2,7 +2,7 @@ import React from "react";
 
 import { HeaderLink } from "./headerLink";
 import { MainLogo } from "./mainLogo";
-import { LoginModal } from "./login";
+import { ProfileIndicator } from "./profileIndicator";
 
 export const AppHeader = () => {
   return (
@@ -18,7 +18,7 @@ export const AppHeader = () => {
         </ul>
       </div>
       <div className="flex">
-        <LoginModal />
+        <ProfileIndicator />
       </div>
     </header>
   );
