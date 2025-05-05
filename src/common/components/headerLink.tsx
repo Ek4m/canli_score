@@ -10,7 +10,6 @@ interface HeaderLinkProps {
 
 export const HeaderLink: FC<HeaderLinkProps> = ({ title, href }) => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <li className="!mr-4">
       <Link
