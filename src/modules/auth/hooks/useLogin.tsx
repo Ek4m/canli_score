@@ -2,8 +2,8 @@ import { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
 import { FailResponse, SuccessResponse } from "@/common/config/response";
-import { LoginDto } from "../types";
-import { AuthService } from "../../services";
+import { LoginDto } from "../login/types";
+import { AuthService } from "../services";
 
 export const useLogin = () => {
   const form = useForm<LoginDto>();

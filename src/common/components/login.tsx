@@ -6,7 +6,7 @@ import { Button } from "@headlessui/react";
 import { Modal } from "./modal";
 import { TextInput } from "./form";
 import Link from "next/link";
-import { useLogin } from "@/modules/auth/login/hooks";
+import { useLogin } from "@/modules/auth/hooks";
 
 export const LoginModal = () => {
   const [open, setOpen] = useState(false);
@@ -50,6 +50,14 @@ export const LoginModal = () => {
             className="text-[#cacaca] !text-left w-full"
           >
             Forgot Password?
+          </Link>
+        </p>
+        <p className="!text-left !my-2">
+          <Link
+            href="/auth/register"
+            className="text-[#cacaca] !text-left w-full"
+          >
+            Don{"'"}t you have account? Create
           </Link>
         </p>
         <br />

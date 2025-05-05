@@ -1,5 +1,5 @@
 import { httpClient } from "@/common/config/httpClient";
-import { LoginDto } from "../login/types";
+import { LoginDto, RegisterDto } from "../login/types";
 import { FailResponse, SuccessResponse } from "@/common/config/response";
 import { isAxiosError } from "axios";
 import { IUser } from "../types/interfaces";
@@ -19,6 +19,20 @@ export class AuthService {
           return new FailResponse(error?.response?.data.message);
         }
         return new FailResponse("Something went wrong");
+      } else {
+        return new FailResponse("Something went wrong");
+      }
+    }
+  }
+  static async register(
+    body: RegisterDto
+  ): Promise<FailResponse | SuccessResponse<boolean>> {
+    try {
+      await httpClient.post("/user/register", body);
+      return new SuccessResponse(true);
+    } catch (error) {
+      if (isAxiosError(error)) {
+          return new FailResponse(error?.response?.data.message);
       } else {
         return new FailResponse("Something went wrong");
       }
