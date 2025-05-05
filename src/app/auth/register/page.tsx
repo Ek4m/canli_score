@@ -1,6 +1,7 @@
-import { RegisterForm } from "@/modules/auth/components";
-import { Metadata } from "next";
 import React from "react";
+import { Metadata } from "next";
+
+import { RegisterForm } from "@/modules/auth/components";
 
 export const metadata: Metadata = {
   title: "Register",

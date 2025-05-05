@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { FailResponse, SuccessResponse } from "@/common/config/response";
 import { RegisterDto } from "../login/types";
 import { AuthService } from "../services";
+import { useRouter } from "next/navigation";
 
 export const useRegister = () => {
   const form = useForm<RegisterDto>();
+  const router = useRouter();
 
   const registerRegisterObj = useMemo(() => {
     return {
@@ -24,12 +26,12 @@ export const useRegister = () => {
     async (data: RegisterDto) => {
       const response = await AuthService.register(data);
       if (response instanceof SuccessResponse) {
-        console.log(response.response);
+        router.push("/auth/login");
       } else if (response instanceof FailResponse) {
         form.setError("root", { message: response.message });
       }
     },
-    [form]
+    [form, router]
   );
 
   return {
