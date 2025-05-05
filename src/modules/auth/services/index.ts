@@ -32,10 +32,19 @@ export class AuthService {
       return new SuccessResponse(true);
     } catch (error) {
       if (isAxiosError(error)) {
-          return new FailResponse(error?.response?.data.message);
+        return new FailResponse(error?.response?.data.message);
       } else {
         return new FailResponse("Something went wrong");
       }
+    }
+  }
+  static async getMe(): Promise<FailResponse | SuccessResponse<IUser>> {
+    try {
+      const response = await httpClient.get("/user/me");
+      return new SuccessResponse(response.data);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
     }
   }
 }
