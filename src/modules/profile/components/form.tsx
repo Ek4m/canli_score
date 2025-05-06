@@ -14,7 +14,10 @@ export const ProfileForm = () => {
       <h1 className="text-[red] !mb-2 text-center">
         {state.errors.root?.message}
       </h1>
-      <form onSubmit={handleSubmit} className="w-full grid grid-cols-2 gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2"
+      >
         <TextInput
           {...registerRegisterObj.firstName}
           placeholder="First name..."
