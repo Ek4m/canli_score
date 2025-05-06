@@ -47,10 +47,14 @@ export class AuthService {
       return new FailResponse("Something went wrong");
     }
   }
-  static async googleLogin(): Promise<FailResponse | SuccessResponse<IUser>> {
+  static async googleLogin(
+    credentials: object
+  ): Promise<FailResponse | SuccessResponse<IUser>> {
     try {
-      const response = await httpClient.get("/auth/google-login");
-      return new SuccessResponse(response.data);
+      const response = await httpClient.post("/auth/google-login", credentials);
+      const { token, user } = response.data;
+      localStorage.setItem("access_token", token);
+      return new SuccessResponse(user);
     } catch (error) {
       console.log(error);
       return new FailResponse("Something went wrong");

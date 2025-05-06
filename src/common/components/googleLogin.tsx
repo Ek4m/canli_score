@@ -1,12 +1,20 @@
+import React, { useContext } from "react";
+import { ImGoogle2 } from "react-icons/im";
 import { Button } from "@headlessui/react";
 import { useGoogleLogin } from "@react-oauth/google";
-import React from "react";
-import { ImGoogle2 } from "react-icons/im";
+
+import { AuthService } from "@/modules/auth/services";
+import { SuccessResponse } from "../config/response";
+import { AuthContext } from "@/modules/auth/contexts";
 
 export const GoogleLogin = () => {
+  const { refetch } = useContext(AuthContext);
   const login = useGoogleLogin({
-    onSuccess: (credential) => {
-      console.log("SUCESS", credential);
+    onSuccess: async (credential) => {
+      const result = await AuthService.googleLogin(credential);
+      if (result instanceof SuccessResponse) {
+        refetch();
+      }
     },
     onError: () => {
       console.log("__ERROR");
