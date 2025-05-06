@@ -3,6 +3,7 @@ import React from "react";
 import { HeaderLink } from "./headerLink";
 import { MainLogo } from "./mainLogo";
 import { ProfileIndicator } from "./profileIndicator";
+import { Sidebar } from "./sidebar";
 
 export const AppHeader = () => {
   return (
@@ -11,15 +12,16 @@ export const AppHeader = () => {
     >
       <div className="flex items-center">
         <MainLogo />
-        <ul className="flex !ml-6">
+        <ul className="!ml-6 sm:flex hidden">
           <HeaderLink href="/scores" title="Scores" />
           <HeaderLink href="/news" title="News" />
           <HeaderLink href="/favourites" title="Favourites" />
         </ul>
       </div>
-      <div className="flex">
+      <div className="sm:flex hidden">
         <ProfileIndicator />
       </div>
+      <Sidebar />
     </header>
   );
 };
