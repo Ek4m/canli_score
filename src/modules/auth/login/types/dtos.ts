@@ -12,3 +12,9 @@ export interface RegisterDto {
   country: string;
   city: string;
 }
+
+export interface ForgotPasswordDto {
+  email: string;
+  newPassword: string;
+  token: string;
+}

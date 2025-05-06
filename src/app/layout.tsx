@@ -28,7 +28,7 @@ export default function RootLayout({
         <Theme className="!bg-transparent">
           <AuthProvider>
             <AppHeader />
-            <div className="lg:px-[10rem] md:px-[6rem] sm:px-[2rem] px-[1rem]">{children}</div>
+            <div className="lg:px-[10rem] md:px-[6rem] sm:px-[2rem] px-[1rem] min-h-[calc(100vh-200px)]">{children}</div>
             <br />
             <br />
             <AppFooter />

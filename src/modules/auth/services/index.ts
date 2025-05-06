@@ -60,4 +60,26 @@ export class AuthService {
       return new FailResponse("Something went wrong");
     }
   }
+  static async forgotPassword(
+    email: string
+  ): Promise<FailResponse | SuccessResponse<boolean>> {
+    try {
+      await httpClient.post("/user/forgot-password", { email });
+      return new SuccessResponse(true);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+  static async resetPassword(
+    email: string
+  ): Promise<FailResponse | SuccessResponse<boolean>> {
+    try {
+      await httpClient.post("/user/reset-password", { email });
+      return new SuccessResponse(true);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
 }
