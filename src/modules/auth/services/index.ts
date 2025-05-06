@@ -47,4 +47,13 @@ export class AuthService {
       return new FailResponse("Something went wrong");
     }
   }
+  static async googleLogin(): Promise<FailResponse | SuccessResponse<IUser>> {
+    try {
+      const response = await httpClient.get("/auth/google-login");
+      return new SuccessResponse(response.data);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
 }
