@@ -11,7 +11,12 @@ import { IUser } from "../types/interfaces";
 import { AuthService } from "../services";
 import { SuccessResponse } from "@/common/config/response";
 
-export const AuthContext = createContext<{ user?: IUser; refetch(): void }>({
+export const AuthContext = createContext<{
+  user?: IUser;
+  refetch(): void;
+  logout(): void;
+}>({
+  logout() {},
   refetch() {},
 });
 
@@ -28,8 +33,12 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     loadData();
   }, [loadData]);
+
+  const logout = useCallback(() => {
+    setUser(undefined);
+  }, []);
   return (
-    <AuthContext.Provider value={{ user, refetch: loadData }}>
+    <AuthContext.Provider value={{ user, refetch: loadData, logout }}>
       {children}
     </AuthContext.Provider>
   );
