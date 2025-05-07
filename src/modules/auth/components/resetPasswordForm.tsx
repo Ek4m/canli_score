@@ -21,7 +21,7 @@ export const ResetPasswordForm = () => {
               Reset your password
             </h1>
             <h1 className="text-[red] !mb-2">{state.errors.root?.message}</h1>
-            <form onSubmit={handleForgetPassword} className="w-full">
+            <form onSubmit={handleForgetPassword} className="w-full flex flex-col">
               <TextInput
                 {...forgotPasswordRegisterObj.password}
                 placeholder="Your new password..."
@@ -31,7 +31,7 @@ export const ResetPasswordForm = () => {
               <Button
                 disabled={state.isLoading}
                 type="submit"
-                className="bg-black text-[#cacaca] w-full p-2 !mt-2 rounded-md cursor-pointer"
+                className="!bg-black !mt-3 !border-1 !border-white !cursor-pointer"
               >
                 Submit!
               </Button>
