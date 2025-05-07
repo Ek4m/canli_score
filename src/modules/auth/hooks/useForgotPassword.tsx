@@ -7,13 +7,11 @@ import { AuthService } from "../services";
 
 export const useForgotPassword = () => {
   const form = useForm<ForgotPasswordDto>();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
 
-  const loginRegisterObj = useMemo(() => {
+  const forgotPasswordRegisterObj = useMemo(() => {
     return {
       email: form.register("email"),
-      password: form.register("newPassword"),
-      token: form.register("token"),
     };
   }, [form]);
 
@@ -21,10 +19,7 @@ export const useForgotPassword = () => {
     async (data: ForgotPasswordDto) => {
       const response = await AuthService.forgotPassword(data.email);
       if (response instanceof SuccessResponse) {
-        setStep(0);
-        setTimeout(() => {
-          setStep(2);
-        }, 1500);
+        setStep(1);
       } else if (response instanceof FailResponse) {
         form.setError("root", { message: response.message });
       }
@@ -33,7 +28,7 @@ export const useForgotPassword = () => {
   );
 
   return {
-    loginRegisterObj,
+    forgotPasswordRegisterObj,
     handleForgetPassword: form.handleSubmit(onForgetPassword),
     state: form.formState,
     step,
