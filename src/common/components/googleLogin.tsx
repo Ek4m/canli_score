@@ -16,9 +16,6 @@ export const GoogleLogin = () => {
         refetch();
       }
     },
-    onError: () => {
-      console.log("__ERROR");
-    },
   });
   return (
     <Button
