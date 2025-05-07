@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { IoMailUnread } from "react-icons/io5";
-import { Button } from "@headlessui/react";
+import { BsCheck } from "react-icons/bs";
+import { Button } from "@radix-ui/themes";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import { TextInput } from "@/common/components/form";
 import { useResetPassword } from "../hooks";
+import Link from "next/link";
 
 export const ResetPasswordForm = () => {
   const { forgotPasswordRegisterObj, handleForgetPassword, state, step } =
@@ -39,13 +40,16 @@ export const ResetPasswordForm = () => {
         ) : null}
         {step === 1 ? (
           <div className="p-[2rem] flex flex-col items-center">
-            <IoMailUnread color="white" size={50} />
+            <BsCheck color="white" size={70} />
             <h1 className="uppercase font-semibold text-white text-xl !mb-3 !text-center !mt-6">
-              Verification code sent
+              SUCCESS
             </h1>
             <p className="text-[white] text-center">
-              A link to reset your password has been sent to your email.
+              Your password was changed successfully!
             </p>
+            <Link href="/auth/login">
+              <Button className="!bg-black !mt-3 !border-1 !border-white !cursor-pointer">Back to log-in</Button>
+            </Link>
           </div>
         ) : null}
       </div>
