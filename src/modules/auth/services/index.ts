@@ -1,5 +1,5 @@
 import { httpClient } from "@/common/config/httpClient";
-import { LoginDto, RegisterDto } from "../login/types";
+import { LoginDto, RegisterDto, ResetPasswordDto } from "../login/types";
 import { FailResponse, SuccessResponse } from "@/common/config/response";
 import { isAxiosError } from "axios";
 import { IUser } from "../types/interfaces";
@@ -72,10 +72,10 @@ export class AuthService {
     }
   }
   static async resetPassword(
-    email: string
+    body: ResetPasswordDto
   ): Promise<FailResponse | SuccessResponse<boolean>> {
     try {
-      await httpClient.post("/user/reset-password", { email });
+      await httpClient.post("/user/reset-password", body);
       return new SuccessResponse(true);
     } catch (error) {
       console.log(error);

@@ -18,3 +18,8 @@ export interface ForgotPasswordDto {
   newPassword: string;
   token: string;
 }
+
+export interface ResetPasswordDto {
+  newPassword: string;
+  token: string;
+}
