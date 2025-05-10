@@ -1,40 +1,36 @@
+"use client";
 import React, { FC, PropsWithChildren } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { IoMdClose } from "react-icons/io";
-import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
-interface ModalProps {
-  open: boolean;
-  setOpen(val: boolean): void;
-}
-
-export const Modal: FC<PropsWithChildren<ModalProps>> = ({
-  open,
-  setOpen,
-  children,
-}) => {
+export const Modal: FC<PropsWithChildren> = () => {
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
-      <DialogBackdrop
-        transition
-        className="fixed inset-0 bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
-      />
+    <Dialog.Root>
+      <Dialog.Trigger className="bg-blue-500 text-white px-4 py-2 rounded">
+        Open Modal
+      </Dialog.Trigger>
 
-      <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 !relative">
-          <DialogPanel
-            transition
-            className="relative  transform overflow-hidden rounded-lg bg-[#1b1b1b] shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
-          >
-            <button
-              className="!absolute right-[1rem] top-[1rem] cursor-pointer"
-              onClick={() => setOpen(false)}
-            >
-              <IoMdClose color="white" size={30} />
+      <Dialog.Portal>
+        <Dialog.Overlay className="bg-black/50 fixed inset-0" />
+        <Dialog.Content className="bg-white rounded-lg p-6 shadow-lg fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96">
+          <Dialog.Title className="text-xl font-semibold">
+            Modal Title
+          </Dialog.Title>
+          <Dialog.Description className="mt-2 text-gray-600">
+            This is a Radix UI modal.
+          </Dialog.Description>
+
+          <div className="mt-4">
+            <button className="bg-green-500 text-white px-4 py-2 rounded">
+              Confirm
             </button>
-            <div className="px-[6rem] py-[4rem]">{children}</div>
-          </DialogPanel>
-        </div>
-      </div>
-    </Dialog>
+          </div>
+
+          <Dialog.Close className="absolute top-3 right-3">
+            <IoMdClose />
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };

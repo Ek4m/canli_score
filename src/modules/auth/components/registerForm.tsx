@@ -2,7 +2,7 @@
 import { TextInput } from "@/common/components/form";
 import React from "react";
 import { useRegister } from "../hooks";
-import { Button } from "@headlessui/react";
+import { Button } from "@radix-ui/themes";
 import Link from "next/link";
 
 export const RegisterForm = () => {

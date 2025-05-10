@@ -13,6 +13,18 @@ export class BlogsService {
     }
   }
 
+  static async getBlogById(
+    id: string
+  ): Promise<SuccessResponse<IBlog> | FailResponse> {
+    try {
+      const res = await httpClient.get("/blogs/" + id);
+      return new SuccessResponse(res.data);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+
   static async createBlog(
     body: CreateBlogDto
   ): Promise<SuccessResponse<IBlog[]> | FailResponse> {

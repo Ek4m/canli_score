@@ -3,10 +3,10 @@ import { Sofia_Sans } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 
 import { AppHeader, AppFooter } from "@/common/components";
+import { AuthProvider } from "@/modules/auth/contexts";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.scss";
-import { AuthProvider } from "@/modules/auth/contexts";
 
 const sofiaSans = Sofia_Sans({
   variable: "--font-sofia-sans",

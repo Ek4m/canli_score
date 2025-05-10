@@ -1,13 +1,30 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
 import { FailResponse, SuccessResponse } from "@/common/config/response";
 import { CreateBlogDto } from "../types";
 import { BlogsService } from "../services";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export const useCreateUpdateBlog = () => {
+  const params = useParams<{ id: string }>();
   const form = useForm<CreateBlogDto>();
+  useEffect(() => {
+    if (params.id) {
+      BlogsService.getBlogById(params.id)
+        .then((res) => {
+          if (res instanceof SuccessResponse) {
+            form.setValue("category", res.response.category);
+            form.setValue("title", res.response.title);
+            form.setValue("content", res.response.content);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [form, params]);
+
   const router = useRouter();
 
   const blogObj = useMemo(() => {
@@ -32,6 +49,6 @@ export const useCreateUpdateBlog = () => {
   return {
     blogObj,
     handleSubmit: form.handleSubmit(onSubmit),
-    form
+    form,
   };
 };

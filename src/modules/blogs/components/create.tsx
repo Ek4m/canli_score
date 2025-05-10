@@ -21,10 +21,10 @@ export const CreateBlogForm = () => {
     ],
     []
   );
-  console.log(values);
+
   return (
     <div className="max-w-[500px] !mt-2 !m-auto bg-white p-2">
-      <h1 className="uppercase font-semibold text-white text-xl !mb-3 !text-center">
+      <h1 className="uppercase font-semibold text-xl !mb-3 !text-center">
         Create Blog
       </h1>
       <h1 className="text-[red] !mb-2">

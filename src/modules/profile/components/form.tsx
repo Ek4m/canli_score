@@ -1,6 +1,6 @@
 "use client";
 import { TextInput } from "@/common/components/form";
-import { Button } from "@headlessui/react";
+import { Button } from "@radix-ui/themes";
 import React from "react";
 import { useProfile } from "../hooks";
 

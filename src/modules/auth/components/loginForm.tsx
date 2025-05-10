@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Button } from "@headlessui/react";
+import { Button } from "@radix-ui/themes";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import { TextInput } from "@/common/components/form";

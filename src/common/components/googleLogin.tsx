@@ -1,6 +1,7 @@
+"use client";
 import React, { useContext } from "react";
 import { ImGoogle2 } from "react-icons/im";
-import { Button } from "@headlessui/react";
+import { Button } from "@radix-ui/themes";
 import { useGoogleLogin } from "@react-oauth/google";
 
 import { AuthService } from "@/modules/auth/services";
