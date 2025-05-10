@@ -16,6 +16,7 @@ export const AppHeader = () => {
           <HeaderLink href="/scores" title="Scores" />
           <HeaderLink href="/news" title="News" />
           <HeaderLink href="/favourites" title="Favourites" />
+          <HeaderLink href="/admin/blogs" title="Admin" />
         </ul>
       </div>
       <div className="sm:flex hidden">
