@@ -4,13 +4,13 @@ import { Button } from "@radix-ui/themes";
 
 import { TextInput } from "@/common/components/form";
 import { RichTextEditor } from "@/common/components";
-import { useCreateUpdateBlog } from "../hooks";
 import { AppSelect } from "@/common/components/select";
+import { useCreateUpdateBlog } from "../hooks";
 
 export const CreateBlogForm = () => {
-  const { blogObj, handleSubmit, form } = useCreateUpdateBlog();
+  const { blogObj, handleSubmit, form, id } = useCreateUpdateBlog();
 
-  const values = form.getValues();
+  const values = form.watch();
 
   const categories = useMemo(
     () => [
@@ -25,18 +25,23 @@ export const CreateBlogForm = () => {
   return (
     <div className="max-w-[500px] !mt-2 !m-auto bg-white p-2">
       <h1 className="uppercase font-semibold text-xl !mb-3 !text-center">
-        Create Blog
+        {id ? "Update" : "Create"} Blog
       </h1>
       <h1 className="text-[red] !mb-2">
         {form.formState.errors.root?.message}
       </h1>
       <form onSubmit={handleSubmit} className="w-full">
+        <p>Title</p>
         <TextInput {...blogObj.title} placeholder="Title..." type="text" />
+        <br />
+        <p>Content</p>
         <RichTextEditor
           value={values.content}
           onEditorChange={(val) => form.setValue("content", val)}
           placeholder="Add content"
         />
+        <br />
+        <p>Select category</p>
         <AppSelect
           placeholder="Select category..."
           options={categories}

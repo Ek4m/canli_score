@@ -36,19 +36,22 @@ export const useCreateUpdateBlog = () => {
 
   const onSubmit = useCallback(
     async (data: CreateBlogDto) => {
-      const response = await BlogsService.createBlog(data);
+      const response = params.id
+        ? await BlogsService.updateBlog(data, params.id)
+        : await BlogsService.createBlog(data);
       if (response instanceof SuccessResponse) {
         router.push("/admin/blogs");
       } else if (response instanceof FailResponse) {
         form.setError("root", { message: response.message });
       }
     },
-    [form, router]
+    [form, router, params]
   );
 
   return {
     blogObj,
     handleSubmit: form.handleSubmit(onSubmit),
+    id: params.id,
     form,
   };
 };

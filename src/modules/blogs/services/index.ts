@@ -27,10 +27,23 @@ export class BlogsService {
 
   static async createBlog(
     body: CreateBlogDto
-  ): Promise<SuccessResponse<IBlog[]> | FailResponse> {
+  ): Promise<SuccessResponse<true> | FailResponse> {
     try {
       const res = await httpClient.post("/blogs", body);
       return new SuccessResponse(res.data);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+
+  static async updateBlog(
+    body: CreateBlogDto,
+    id: string
+  ): Promise<SuccessResponse<true> | FailResponse> {
+    try {
+      await httpClient.put("/blogs/" + id, body);
+      return new SuccessResponse(true);
     } catch (error) {
       console.log(error);
       return new FailResponse("Something went wrong");

@@ -9,12 +9,14 @@ type TextEditorProps = IAllPropsWithRemovedFields & {
 };
 
 export const RichTextEditor: FC<TextEditorProps> = ({
+  value,
   placeholder,
   onEditorChange,
   ...props
 }) => {
   return (
     <Editor
+      value={value}
       onEditorChange={onEditorChange}
       apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
       {...props}
