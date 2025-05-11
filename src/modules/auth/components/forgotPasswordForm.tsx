@@ -10,7 +10,6 @@ import { useForgotPassword } from "../hooks";
 export const ForgotPasswordForm = () => {
   const { forgotPasswordRegisterObj, handleForgetPassword, state, step } =
     useForgotPassword();
-
   return (
     <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_ID || ""}>
       <div className="max-w-[500px] !mt-2 !m-auto">
