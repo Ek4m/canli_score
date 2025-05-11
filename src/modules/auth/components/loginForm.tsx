@@ -10,7 +10,7 @@ import { useLogin } from "../hooks";
 
 export const LoginForm = () => {
   const { loginRegisterObj, handleSubmit, state } = useLogin();
-  console.log("API KEY", process.env.NEXT_PUBLIC_GOOGLE_ID);
+
   return (
     <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_ID || ""}>
       <div className="max-w-[500px] !mt-2 !m-auto">

@@ -51,7 +51,7 @@ export class AuthService {
     credentials: object
   ): Promise<FailResponse | SuccessResponse<IUser>> {
     try {
-      const response = await httpClient.post("/auth/google-login", credentials);
+      const response = await httpClient.post("/user/google-auth", credentials);
       const { token, user } = response.data;
       localStorage.setItem("access_token", token);
       return new SuccessResponse(user);
