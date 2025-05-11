@@ -9,7 +9,7 @@ export const useGetLeaguesByCountry = (id: string) =>
       if (response instanceof SuccessResponse) return response.response;
       return [];
     },
-    queryKey: ["countries", id],
+    queryKey: ["leaguesbycountry", id],
     staleTime: 1000 * 3600 * 30,
     enabled: !!id,
   });
