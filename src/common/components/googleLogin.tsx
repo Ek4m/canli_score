@@ -21,10 +21,10 @@ export const GoogleLogin = () => {
   return (
     <Button
       onClick={() => login()}
-      className="bg-black text-[#cacaca] w-full p-2 !mt-2 rounded-md cursor-pointer flex items-center justify-center"
+      className="!bg-black text-[#cacaca] !w-full !p-2 !mt-2 !rounded-md !cursor-pointer flex items-center justify-center"
     >
       <ImGoogle2 size={30} color="white" />
-      <p className="!ml-2">Continue with Google</p>
+      <p className="!ml-2 text-white">Continue with Google</p>
     </Button>
   );
 };

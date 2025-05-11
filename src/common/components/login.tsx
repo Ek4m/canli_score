@@ -7,8 +7,7 @@ import { LoginForm } from "@/modules/auth/components";
 export const LoginModal = () => {
   return (
     <>
-      <button className="text-white cursor-pointer">Log in</button>
-      <Modal>
+      <Modal trigger={<div className="text-white cursor-pointer">Log in</div>}>
         <LoginForm />
       </Modal>
     </>

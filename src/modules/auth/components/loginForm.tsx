@@ -14,7 +14,7 @@ export const LoginForm = () => {
   return (
     <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_ID || ""}>
       <div className="max-w-[500px] !mt-2 !m-auto">
-        <h1 className="uppercase font-semibold text-white text-xl !mb-3 !text-center">
+        <h1 className="uppercase font-semibold text-xl !mb-3 !text-center">
           Welcome back
         </h1>
         <h1 className="text-[red] !mb-2">{state.errors.root?.message}</h1>
@@ -32,7 +32,7 @@ export const LoginForm = () => {
           <Button
             disabled={state.isLoading}
             type="submit"
-            className="bg-black text-[#cacaca] w-full p-2 !mt-2 rounded-md cursor-pointer"
+            className="!bg-black !text-[white] !w-full !p-2 !mt-2 !rounded-md !cursor-pointer"
           >
             Submit!
           </Button>
@@ -40,7 +40,7 @@ export const LoginForm = () => {
         <p className="!text-center !mt-3">
           <Link
             href="/auth/forgot-password"
-            className="text-[#cacaca] !text-left w-full"
+            className="text-[#181818] !text-left w-full"
           >
             Forgot Password?
           </Link>
@@ -48,7 +48,7 @@ export const LoginForm = () => {
         <p className="!text-center">
           <Link
             href="/auth/register"
-            className="text-[#cacaca] !text-left w-full"
+            className="text-[#181818] !text-left w-full"
           >
             Don{"'"}t you have account? Create
           </Link>
