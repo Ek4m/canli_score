@@ -1,14 +1,21 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useDeferredValue, useMemo } from "react";
 import { useGetCountries } from "../hooks";
 import { ScoresContext } from "../contexts";
 
 export const CountriesList = () => {
   const { data } = useGetCountries();
-  const { setCountryId, countryId } = useContext(ScoresContext);
+  const { setCountryId, countryId, search } = useContext(ScoresContext);
+  const optimizedSearch = useDeferredValue(search);
+
+  const countries = useMemo(() => {
+    if (!data) return [];
+    return data.filter((c) => c.name.includes(optimizedSearch));
+  }, [data, optimizedSearch]);
+
   return (
     <div className="h-[100vh] overflow-y-scroll">
-      {data?.map((country) => (
+      {countries.map((country) => (
         <div
           role="button"
           onClick={() => setCountryId(country.id)}
