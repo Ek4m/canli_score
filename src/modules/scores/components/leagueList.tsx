@@ -1,8 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { LeagueListElement } from "./leagueListElem";
-export const LeagueList = () => {
+import { ILiveLeague } from "../types";
+export const LeagueList: FC<{ league: ILiveLeague }> = ({ league }) => {
   return (
-    <div className="!mb-5">
+    <div className="!my-5">
       <div className="flex items-center !mb-3">
         <img
           className="w-[25px] !mr-2"
@@ -10,13 +11,15 @@ export const LeagueList = () => {
           alt="league icon"
         />
         <div>
-          <h6 className="text-white font-bold">Premier League</h6>
-          <h6 className="text-[13px] text-[#cacaca]">England</h6>
+          <h6 className="text-white font-bold">{league.competition.name}</h6>
+          <h6 className="text-[13px] text-[#cacaca]">
+            {league.matches[0].country?.name}
+          </h6>
         </div>
       </div>
       <div>
-        {[1, 2, 3, 4, 5].map((game) => (
-          <LeagueListElement key={game} />
+        {league.matches.map((game) => (
+          <LeagueListElement game={game} key={game.id} />
         ))}
       </div>
     </div>
