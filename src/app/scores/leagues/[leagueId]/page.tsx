@@ -1,6 +1,11 @@
 import React from "react";
+import { Metadata } from "next";
 
 import { LeagueMatchesList, ScoreLeftAside } from "@/modules/scores/components";
+
+export const metadata: Metadata = {
+  title: "League matches",
+};
 
 const SingleLeaguePage = () => {
   return (

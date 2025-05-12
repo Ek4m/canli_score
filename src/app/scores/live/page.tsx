@@ -1,5 +1,11 @@
-import { LiveMatches, ScoreLeftAside } from "@/modules/scores/components";
 import React from "react";
+
+import { LiveMatches, ScoreLeftAside } from "@/modules/scores/components";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Live matches",
+};
 
 const LiveMatchesPage = () => {
   return (
