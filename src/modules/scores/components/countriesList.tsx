@@ -7,7 +7,7 @@ export const CountriesList = () => {
   const { data } = useGetCountries();
   const { setCountryId, countryId, search } = useContext(ScoresContext);
   const optimizedSearch = useDeferredValue(search);
-  console.log(data);
+
   const countries = useMemo(() => {
     if (!data) return [];
     return data.filter((c) => c.name.includes(optimizedSearch));

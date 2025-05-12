@@ -31,7 +31,16 @@ export class ScoresService {
   > {
     try {
       const response = await httpClient.get("/live");
-      return new SuccessResponse(response.data.filter((e: ILiveLeague) => !!e));
+      const result = response.data
+        .filter(
+          (e: ILiveLeague) =>
+            !!e && e.matches.some((m) => m.status === "IN PLAY")
+        )
+        .map((e: ILiveLeague) => ({
+          ...e,
+          matches: e.matches.filter((match) => match.status === "IN PLAY"),
+        }));
+      return new SuccessResponse(result);
     } catch (error) {
       console.log(error);
       return new FailResponse("Something went wrong");

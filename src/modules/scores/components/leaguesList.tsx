@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const LeaguesListByCountry = () => {
   const { countryId } = useContext(ScoresContext);
-  console.log("COUNTRY ID", countryId);
+
   const { data } = useGetLeaguesByCountry(countryId);
   return (
     <div className="h-[100vh] overflow-y-scroll">
