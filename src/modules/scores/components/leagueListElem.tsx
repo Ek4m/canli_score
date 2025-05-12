@@ -7,7 +7,7 @@ export const LeagueListElement: FC<{
   game: ILiveLeague["matches"][number];
 }> = ({ game }) => {
   const scores = useMemo(() => {
-    const score = game.scores.score.split(" - ");
+    const score = game.scores?.score?.split(" - ") || ["", ""];
     return {
       home: score[0].includes("?") ? "" : score[0],
       away: score[1].includes("?") ? "" : score[1],
@@ -15,7 +15,12 @@ export const LeagueListElement: FC<{
   }, [game]);
 
   const gameTime = useMemo(() => {
-    return game.time.includes(":") ? game.time : game.time + "`";
+    if (game.time.includes(":")) {
+      if (game.time.indexOf(":") !== game.time.lastIndexOf(":"))
+        return game.time.slice(0, game.time.lastIndexOf(":"));
+      return game.time;
+    }
+    return game.time + "`";
   }, [game]);
 
   return (
@@ -38,7 +43,7 @@ export const LeagueListElement: FC<{
           <div className="flex items-center !mb-2">
             <img
               className="w-[20px] !mr-3"
-              src="https://lsm-static-prod.livescore.com/medium/enet/9937.png"
+              src={game.home.logo}
               alt="team icon"
             />
             <p className="text-[#cacaca] text-sm">{game.home.name}</p>
@@ -46,7 +51,7 @@ export const LeagueListElement: FC<{
           <div className="flex items-center">
             <img
               className="w-[20px] !mr-3"
-              src="https://lsm-static-prod.livescore.com/medium/enet/10260.png"
+              src={game.away.logo}
               alt="team icon"
             />
             <p className="text-[#cacaca] text-sm">{game.away.name}</p>
