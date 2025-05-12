@@ -5,7 +5,7 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 import { BsCalendar2Date } from "react-icons/bs";
-import { differenceInDays, format } from "date-fns";
+import { differenceInMilliseconds, format } from "date-fns";
 
 import { DayPicker } from "./dayPicker";
 
@@ -17,19 +17,20 @@ export const DatePicker: FC<{
   const today = useRef(new Date());
 
   const onSelectNextDay = useCallback(() => {
-    const newDate = new Date(date.getTime());
+    const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + 1);
     onChangeDate(newDate);
   }, [date, onChangeDate]);
 
   const onSelectPrevDay = useCallback(() => {
-    const newDate = new Date(date.getTime());
+    const newDate = new Date(date);
     newDate.setDate(newDate.getDate() - 1);
     onChangeDate(newDate);
   }, [date, onChangeDate]);
 
   const selectedDateTitle = useMemo(() => {
-    const difference = differenceInDays(date, today.current);
+    const differenceInMillis = differenceInMilliseconds(date, today.current);
+    const difference = Math.ceil(differenceInMillis / (1000 * 60 * 60 * 24));
     if (difference === 0) return "Today";
     if (difference === 1) return "Tomorrow";
     if (difference === -1) return "Yesterday";

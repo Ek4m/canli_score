@@ -51,7 +51,6 @@ export class ScoresService {
   ): Promise<SuccessResponse<ILiveLeague[]> | FailResponse> {
     try {
       const response = await httpClient.get("/fixtures?date=" + date);
-      console.log(response.data);
       const result = response.data.grouped;
       return new SuccessResponse(result);
     } catch (error) {

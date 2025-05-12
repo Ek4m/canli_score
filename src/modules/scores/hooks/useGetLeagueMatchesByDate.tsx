@@ -8,9 +8,7 @@ export const useGetLeagueMatchesByDate = (date: Date) =>
   useQuery({
     queryFn: async () => {
       const title = format(date, "yyyy-MM-dd");
-      console.log("____SAAAA", title);
       const response = await ScoresService.getLeagueMatchesByDate(title);
-      console.log("____ASSSSSSS", response.status);
       if (response instanceof SuccessResponse) return response.response;
       return [];
     },
