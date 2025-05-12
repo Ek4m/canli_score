@@ -46,4 +46,17 @@ export class ScoresService {
       return new FailResponse("Something went wrong");
     }
   }
+  static async getLeagueMatchesByDate(
+    date: string
+  ): Promise<SuccessResponse<ILiveLeague[]> | FailResponse> {
+    try {
+      const response = await httpClient.get("/fixtures?date=" + date);
+      console.log(response.data);
+      const result = response.data.grouped;
+      return new SuccessResponse(result);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
 }

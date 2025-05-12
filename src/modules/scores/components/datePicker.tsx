@@ -1,12 +1,13 @@
 import React, { FC, useCallback, useMemo, useRef } from "react";
+import Link from "next/link";
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 import { BsCalendar2Date } from "react-icons/bs";
-import Link from "next/link";
-import { DayPicker } from "./dayPicker";
 import { differenceInDays, format } from "date-fns";
+
+import { DayPicker } from "./dayPicker";
 
 export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
   date,
@@ -37,7 +38,7 @@ export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
   return (
     <div className="flex items-center">
       <Link href="/scores/live">
-        <button className="w-[45px] h-[45px] rounded-full cursor-pointer bg-[white] flex items-center justify-center">
+        <button className="w-[45px] h-[45px] rounded-full cursor-pointer bg-[white] flex items-center justify-center !mr-2">
           LIVE
         </button>
       </Link>
