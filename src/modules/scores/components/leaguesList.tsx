@@ -1,16 +1,15 @@
 "use client";
 import React, { useContext } from "react";
-import { ScoresContext } from "../contexts";
-import { useGetLeaguesByCountry } from "../hooks";
 import Link from "next/link";
 
-export const LeaguesListByCountry = () => {
-  const { countryId } = useContext(ScoresContext);
+import { ScoresContext } from "../contexts";
 
-  const { data } = useGetLeaguesByCountry(countryId);
+export const LeaguesListByCountry = () => {
+  const { countryId,leaguesByCountry } = useContext(ScoresContext);
+
   return (
     <div className="h-[100vh] overflow-y-scroll">
-      {data?.map((league) => (
+      {leaguesByCountry?.map((league) => (
         <Link key={league.id} href={`/scores/leagues/${league.id}`}>
           <div
             role="button"

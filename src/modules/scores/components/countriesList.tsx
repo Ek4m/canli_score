@@ -1,26 +1,25 @@
 "use client";
 import { useContext, useDeferredValue, useMemo } from "react";
-import { useGetCountries } from "../hooks";
 import { ScoresContext } from "../contexts";
 
 export const CountriesList = () => {
-  const { data } = useGetCountries();
-  const { setCountryId, countryId, search } = useContext(ScoresContext);
+  const { setCountryId, countryId, search, countries } =
+    useContext(ScoresContext);
   const optimizedSearch = useDeferredValue(search);
 
-  const countries = useMemo(() => {
-    if (!data) return [];
-    return data.filter((c) => c.name.includes(optimizedSearch));
-  }, [data, optimizedSearch]);
+  const filteredCountries = useMemo(() => {
+    if (!countries) return [];
+    return countries.filter((c) => c.name.includes(optimizedSearch));
+  }, [countries, optimizedSearch]);
 
   return (
     <div className="h-[100vh] overflow-y-scroll">
-      {countries.map((country) => (
+      {filteredCountries.map((country) => (
         <div
           role="button"
           onClick={() => setCountryId(country.id)}
           key={country.id}
-          className={`px-2 py-2 cursor-pointer  overflow-scroll hover:bg-[#414141]  flex items-center ${
+          className={`px-2 py-2 cursor-pointer hover:bg-[#414141]  flex items-center ${
             countryId === country.id ? "bg-[#414141]" : "bg-[#181818]"
           } rounded-[5px] !mb-1`}
         >
