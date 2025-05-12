@@ -9,10 +9,11 @@ import { differenceInDays, format } from "date-fns";
 
 import { DayPicker } from "./dayPicker";
 
-export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
-  date,
-  onChangeDate,
-}) => {
+export const DatePicker: FC<{
+  date: Date;
+  onChangeDate(val: Date): void;
+  disablePicking: boolean;
+}> = ({ date, onChangeDate, disablePicking }) => {
   const today = useRef(new Date());
 
   const onSelectNextDay = useCallback(() => {
@@ -44,6 +45,7 @@ export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
       </Link>
       <div className="flex flex-1 justify-between items-center">
         <button
+          disabled={disablePicking}
           onClick={onSelectPrevDay}
           className=" hover:bg-[#414141] rounded-[50%] cursor-pointer p-2"
         >
@@ -51,6 +53,7 @@ export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
         </button>
         <h1 className="text-white font-bold">{selectedDateTitle}</h1>
         <button
+          disabled={disablePicking}
           onClick={onSelectNextDay}
           className=" hover:bg-[#414141] rounded-[50%] cursor-pointer p-2"
         >
@@ -59,7 +62,10 @@ export const DatePicker: FC<{ date: Date; onChangeDate(val: Date): void }> = ({
       </div>
 
       <DayPicker onSelect={onChangeDate} value={date}>
-        <button className="!ml-3 h-[40px] w-[40px] bg-[#181818] rounded-[50%] flex items-center justify-center cursor-pointer hover:bg-[#414141]">
+        <button
+          disabled={disablePicking}
+          className="!ml-3 h-[40px] w-[40px] bg-[#181818] rounded-[50%] flex items-center justify-center cursor-pointer hover:bg-[#414141]"
+        >
           <BsCalendar2Date size={20} color="white" />
         </button>
       </DayPicker>
