@@ -40,7 +40,7 @@ export const DatePicker: FC<{
   return (
     <div className="flex items-center">
       <Link href="/scores/live">
-        <button className="w-[45px] h-[45px] rounded-full cursor-pointer bg-[white] flex items-center justify-center !mr-2">
+        <button className="w-[40px] h-[40px] rounded-full cursor-pointer border-white border-1 text-white flex items-center text-xs justify-center !mr-2 hover:bg-white hover:text-black">
           LIVE
         </button>
       </Link>

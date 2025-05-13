@@ -8,8 +8,8 @@ export const MainLogo = () => {
       <Image
         src="/assets/logo_main.png"
         alt="main_icon"
-        height={20}
-        width={100}
+        height={25}
+        width={120}
       />
     </Link>
   );

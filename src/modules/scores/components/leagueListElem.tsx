@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React, { FC, useMemo } from "react";
 import { FaRegStar } from "react-icons/fa";
+
 import { ILiveLeague } from "../types";
+import { format } from "date-fns";
 
 export const LeagueListElement: FC<{
   game: ILiveLeague["matches"][number];
@@ -23,6 +25,11 @@ export const LeagueListElement: FC<{
     return game.time + "`";
   }, [game]);
 
+  const gameDate = useMemo(
+    () => (game.date ? format(new Date(game.date), "d MMM") : ""),
+    [game]
+  );
+
   return (
     <Link
       href={`/game/${game.id}`}
@@ -32,13 +39,18 @@ export const LeagueListElement: FC<{
         <div className="!absolute rounded-md w-[10px] h-[56px] bg-orange-500 left-[-5px] top-[7px]"></div>
       )}
       <div className="flex items-center">
-        <h6
-          className={`${
-            game.status !== "IN PLAY" ? "text-[#cacaca]" : "text-orange-400"
-          } text-xs font-semibold`}
-        >
-          {gameTime}
-        </h6>
+        <div className="flex flex-col items-center">
+          {game.status !== "IN PLAY" && (
+            <h6 className="text-[#cacaca] !mb-1 text-xs">{gameDate}</h6>
+          )}
+          <h6
+            className={`${
+              game.status !== "IN PLAY" ? "text-[#cacaca]" : "text-orange-400"
+            } text-xs font-semibold`}
+          >
+            {gameTime}
+          </h6>
+        </div>
         <div className="flex flex-col items-start !ml-2">
           <div className="flex items-center !mb-2">
             <img

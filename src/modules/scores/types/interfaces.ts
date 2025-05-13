@@ -62,6 +62,7 @@ export interface ILiveLeague {
     };
     time: string;
     added: string;
+    date: string;
     competition: ILeague;
     outcomes: {
       half_time: string;
