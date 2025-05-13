@@ -25,7 +25,7 @@ export const CountriesList = () => {
         >
           <img
             className="w-[18px] h-[18px] object-contain"
-            src="https://static.livescore.com/i2/fh/england.jpg"
+            src={`/assets/flags/${country.id}.png`}
             alt="flag"
           />
           <p className="!ml-2 text-xs text-white">{country.name}</p>

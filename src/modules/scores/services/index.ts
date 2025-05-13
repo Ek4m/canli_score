@@ -8,7 +8,8 @@ export class ScoresService {
   > {
     try {
       const response = await httpClient.get("/countries");
-      return new SuccessResponse(response.data);
+      const result = response.data.filter((e: ICountry) => !!e.national_team);
+      return new SuccessResponse(result);
     } catch (error) {
       console.log(error);
       return new FailResponse("Something went wrong");

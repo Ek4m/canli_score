@@ -7,6 +7,10 @@ export interface ICountry {
     id: string;
     name: string;
   };
+  national_team: {
+    id: string;
+    name: string;
+  };
 }
 
 export interface ILeague {
