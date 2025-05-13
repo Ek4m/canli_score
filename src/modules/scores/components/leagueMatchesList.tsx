@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 
-import { useGetMatchesByLeague } from "../hooks";
+import { useGetLeagueTable, useGetMatchesByLeague } from "../hooks";
 import { LeagueBadge } from "./league";
 import { LeagueMatchesOverview } from "./leagueMatchesOverview";
+import { ScoreTable } from "./scoreTable";
 
 export const LeagueMatchesList = () => {
   const { leagueId } = useParams<{ leagueId: string }>();
   const { data: leagueMatches } = useGetMatchesByLeague(leagueId);
-
+  const { data: tableData } = useGetLeagueTable(leagueId);
   const [visibleUI, setVisibleUI] = useState<"matches" | "table">("matches");
 
   return (
@@ -47,10 +48,7 @@ export const LeagueMatchesList = () => {
             pastFixture={leagueMatches.pastFixture}
           />
         ) : (
-          <LeagueMatchesOverview
-            futureFixture={leagueMatches?.futureFixture}
-            pastFixture={leagueMatches.pastFixture}
-          />
+          tableData && <ScoreTable data={tableData} />
         ))}
     </div>
   );

@@ -1,5 +1,5 @@
 import { FailResponse, SuccessResponse } from "@/common/config/response";
-import { ICountry, ILeague, ILiveLeague } from "../types";
+import { ICountry, ILeague, ILeagueTableMatch, ILiveLeague } from "../types";
 import { httpClient } from "@/common/config/httpClient";
 
 export class ScoresService {
@@ -69,6 +69,20 @@ export class ScoresService {
     try {
       const response = await httpClient.get(
         "/competitions/fixtures?competition_id=" + id
+      );
+      const result = response.data;
+      return new SuccessResponse(result);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+  static async getLeagueTable(
+    id: string
+  ): Promise<SuccessResponse<ILeagueTableMatch[]> | FailResponse> {
+    try {
+      const response = await httpClient.get(
+        "/leagues/table?competition_id=" + id
       );
       const result = response.data;
       return new SuccessResponse(result);

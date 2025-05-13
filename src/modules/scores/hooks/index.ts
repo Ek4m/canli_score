@@ -3,3 +3,4 @@ export * from "./useGetLeaguesByCountry";
 export * from "./useGetLiveMatches";
 export * from "./useGetLeagueMatchesByDate";
 export * from "./useGetMatchesByLeague";
+export * from "./useGetLeagueTable";

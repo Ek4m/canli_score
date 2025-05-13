@@ -84,3 +84,25 @@ export interface ILiveLeague {
     };
   }[];
 }
+
+export interface ILeagueTableMatch {
+  league_id: string;
+  season_id: string;
+  name: string;
+  rank: string;
+  points: string;
+  matches: string;
+  goal_diff: string;
+  goals_scored: string;
+  goals_conceded: string;
+  lost: string;
+  logo: string;
+  drawn: string;
+  won: string;
+  team_id: string;
+  competition_id: string;
+  group_id: string;
+  group_name: string;
+  stage_name: string;
+  stage_id: string;
+}
