@@ -17,7 +17,7 @@ export const ScoreLeftAside = () => {
         <div
           onClick={() => setCountryId("")}
           role="button"
-          className="border-b-1 border-[#414141] p-3 flex items-center cursor-pointer"
+          className="border-b-1 border-[#414141] p-3 flex items-end cursor-pointer"
         >
           <IoIosArrowBack color="white" />
           <p className="text-white text-sm !ml-1">Select league</p>

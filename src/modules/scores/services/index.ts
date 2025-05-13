@@ -58,4 +58,22 @@ export class ScoresService {
       return new FailResponse("Something went wrong");
     }
   }
+  static async getMatchesByLeague(id: string): Promise<
+    | SuccessResponse<{
+        pastFixture: ILiveLeague[];
+        futureFixture: ILiveLeague[];
+      }>
+    | FailResponse
+  > {
+    try {
+      const response = await httpClient.get(
+        "/competitions/fixtures?competition_id=" + id
+      );
+      const result = response.data;
+      return new SuccessResponse(result);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
 }

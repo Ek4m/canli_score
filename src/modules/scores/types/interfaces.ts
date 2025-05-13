@@ -3,6 +3,10 @@ export interface ICountry {
   name: string;
   is_real: string;
   leagues: string;
+  federation: {
+    id: string;
+    name: string;
+  };
 }
 
 export interface ILeague {
@@ -23,6 +27,7 @@ export interface ILiveLeague {
     last_changed: string;
     status: string;
     fixture_id: number;
+    round: string;
     home: {
       logo: string;
       id: number;
