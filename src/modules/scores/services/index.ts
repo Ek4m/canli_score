@@ -1,5 +1,11 @@
 import { FailResponse, SuccessResponse } from "@/common/config/response";
-import { ICountry, ILeague, ILeagueTableMatch, ILiveLeague } from "../types";
+import {
+  ICountry,
+  ILeague,
+  ILeagueTableMatch,
+  ILiveLeague,
+  IMatchEvent,
+} from "../types";
 import { httpClient } from "@/common/config/httpClient";
 
 export class ScoresService {
@@ -84,6 +90,18 @@ export class ScoresService {
       const response = await httpClient.get(
         "/leagues/table?competition_id=" + id
       );
+      const result = response.data;
+      return new SuccessResponse(result);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+  static async getMatchEvents(
+    id: string
+  ): Promise<SuccessResponse<IMatchEvent> | FailResponse> {
+    try {
+      const response = await httpClient.get("/match/event?match_id=" + id);
       const result = response.data;
       return new SuccessResponse(result);
     } catch (error) {

@@ -32,7 +32,7 @@ export const LeagueListElement: FC<{
 
   return (
     <Link
-      href={`/game/${game.id}`}
+      href={`/scores/game/${game.id}`}
       className="flex justify-between bg-[#f1f2f6] py-2 pl-4 pr-3 rounded-lg !mb-1 !relative overflow-hidden h-[70px] hover:bg-[#dfe4ea] cursor-pointer"
     >
       {game.status === "IN PLAY" && (

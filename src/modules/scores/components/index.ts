@@ -4,3 +4,4 @@ export * from "./countriesList";
 export * from "./leagueMatchesList";
 export * from "./liveMatches";
 export * from "./mobileSearch";
+export * from "./matchDetails";
