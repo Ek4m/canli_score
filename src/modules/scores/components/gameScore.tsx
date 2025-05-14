@@ -15,7 +15,7 @@ export const GameScore: FC<{ game: IMatchEvent["match"] }> = ({ game }) => {
     <div className="py-[2rem] px-[1rem] bg-[#f1f2f6] flex items-center justify-around rounded-md">
       <div className="flex flex-col items-center">
         <img
-          src="https://static.livescore.com/competition/high/premier-league-2024.png"
+          src={game.home.logo}
           alt="team logo"
           className="bg-[#001e28] rounded-sm p-2 h-[50px]"
         />
@@ -27,7 +27,7 @@ export const GameScore: FC<{ game: IMatchEvent["match"] }> = ({ game }) => {
       </div>
       <div className="flex flex-col items-center">
         <img
-          src="https://static.livescore.com/competition/high/premier-league-2024.png"
+          src={game.away.logo}
           alt="team logo"
           className="bg-[#001e28] rounded-sm p-2 h-[50px]"
         />

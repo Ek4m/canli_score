@@ -145,6 +145,7 @@ export interface IMatchEvent {
       id: string;
       name: string;
       country_id: string;
+      logo: string;
       stadium: string;
       location: string;
     };
@@ -152,6 +153,7 @@ export interface IMatchEvent {
       id: string;
       name: string;
       country_id: string;
+      logo: string;
       stadium: string;
       location: string;
     };
