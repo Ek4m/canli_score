@@ -4,7 +4,7 @@ export const TextInput: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
   return (
     <input
       {...props}
-      className="p-2  !mb-2 w-full placeholder-[#7c7c7c] bg-[#181818] focus:bg-[#414141] focus:outline-none rounded-md placeholder-xs text-white"
+      className="p-2  !mb-2 w-full  bg-[#f1f2f6] focus:bg-[#ced6e0] focus:outline-none rounded-md  text-[#2f3542] border-1 border-[#ced6e0]"
     />
   );
 };

@@ -8,7 +8,7 @@ export const ProfileForm = () => {
   const { handleSubmit, registerRegisterObj, state } = useProfile();
   return (
     <div className="w-full !mt-6">
-      <h1 className="uppercase font-semibold text-white text-xl !mb-3 !text-center">
+      <h1 className="uppercase font-semibold text-[#2f3542] text-xl !mb-3 !text-center">
         Update your profile
       </h1>
       <h1 className="text-[red] !mb-2 text-center">
@@ -46,7 +46,7 @@ export const ProfileForm = () => {
         <Button
           disabled={state.isLoading}
           type="submit"
-          className="bg-black text-[#cacaca] w-full p-2  rounded-md cursor-pointer !mb-1"
+          className="!bg-[#001e28] w-full !p-[0] !h-[42px]  !rounded-lg !cursor-pointer !mb-1"
         >
           Submit!
         </Button>
