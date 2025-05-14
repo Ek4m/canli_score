@@ -17,9 +17,9 @@ export const ProfileIndicator = () => {
       <DropdownMenu.Trigger className="focus:outline-none">
         <FaCircleUser className="cursor-pointer" color="white" size={30} />
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content className="!bg-black">
+      <DropdownMenu.Content className="!bg-[#ffff]">
         <DropdownMenu.Item>
-          <Link className="flex items-center text-white" href="/profile">
+          <Link className="flex items-center text-[#2f3542]" href="/profile">
             <FiEdit size={15} className="!mr-1" />
             Edit Profile
           </Link>

@@ -7,16 +7,34 @@ export const ScoreTable: FC<{ data: ILeagueTableMatch[] }> = ({ data }) => {
       <table className="w-full ">
         <thead>
           <tr className="border-b-1 border-[#414141]">
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">#</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-left">Team</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">P</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">W</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">D</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">L</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">F</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">A</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">GD</th>
-            <th className="py-3 px-2 text-sm text-[#cacaca] text-center">
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              #
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-left">
+              Team
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              P
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              W
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              D
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              L
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              F
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              A
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
+              GD
+            </th>
+            <th className="py-3 px-2 text-sm text-[#2f3542cacaca] text-center">
               PTS
             </th>
           </tr>
@@ -24,8 +42,8 @@ export const ScoreTable: FC<{ data: ILeagueTableMatch[] }> = ({ data }) => {
         <tbody>
           {data.map((row, index) => (
             <tr key={row.team_id} className="border-b-1 border-[#414141]">
-              <td className="py-3 px-2 text-sm text-[#cacaca]">{index + 1}</td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-left ">
+              <td className="py-3 px-2 text-sm text-[#2f3542]">{index + 1}</td>
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-left ">
                 <div className="flex items-center">
                   <img
                     className="w-[20px] !mr-3"
@@ -35,28 +53,28 @@ export const ScoreTable: FC<{ data: ILeagueTableMatch[] }> = ({ data }) => {
                   <p className="!ml-1">{row.name}</p>
                 </div>
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.matches}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-left">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-left">
                 {row.won}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.drawn}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.lost}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.goals_scored}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.goals_conceded}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.goal_diff}
               </td>
-              <td className="py-3 px-2 text-sm text-[#cacaca] text-center">
+              <td className="py-3 px-2 text-sm text-[#2f3542] text-center">
                 {row.points}
               </td>
             </tr>

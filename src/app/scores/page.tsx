@@ -14,7 +14,7 @@ const ScoresPage = () => {
         <div className="grid w-full grid-cols-6 gap-x-3">
           <ScoreLeftAside />
           <ScoreMain />
-          <div className="col-span-2">Salaaam</div>
+          <div className="col-span-2">Burda reklam olacaq</div>
         </div>
       </div>
     </div>

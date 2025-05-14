@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sofiaSans.variable} !bg-[#111]`}>
+      <body className={`${sofiaSans.variable}`}>
         <QueryClientProvider client={queryClient}>
           <Theme className="!bg-transparent">
             <AuthProvider>

@@ -24,7 +24,7 @@ export const LeagueMatchesList = () => {
           <div className="flex items-center border-b-1 border-grey !mb-[1rem] pb-2">
             <button
               className={`font-semibold !mr-2 ${
-                visibleUI === "matches" ? "text-orange-500" : "text-[#cacaca]"
+                visibleUI === "matches" ? "text-[#2f3542]" : "text-[#cacaca]"
               } cursor-pointer`}
               onClick={() => setVisibleUI("matches")}
             >
@@ -32,7 +32,7 @@ export const LeagueMatchesList = () => {
             </button>
             <button
               className={`font-semibold !mr-2 ${
-                visibleUI === "table" ? "text-orange-500" : "text-[#cacaca]"
+                visibleUI === "table" ? "text-[#2f3542]" : "text-[#cacaca]"
               } cursor-pointer`}
               onClick={() => setVisibleUI("table")}
             >

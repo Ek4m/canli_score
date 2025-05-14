@@ -38,9 +38,9 @@ export const DatePicker: FC<{
   }, [date]);
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center border-b-1 border-[#a4b0be] pb-3">
       <Link href="/scores/live">
-        <button className="w-[40px] h-[40px] rounded-full cursor-pointer border-white border-1 text-white flex items-center text-xs justify-center !mr-2 hover:bg-white hover:text-black">
+        <button className="w-[40px] h-[40px] rounded-full cursor-pointer border-[#57606f] border-1 text-[#57606f] flex items-center text-xs justify-center !mr-2 hover:bg-[#57606f] hover:text-white">
           LIVE
         </button>
       </Link>
@@ -48,26 +48,26 @@ export const DatePicker: FC<{
         <button
           disabled={disablePicking}
           onClick={onSelectPrevDay}
-          className=" hover:bg-[#414141] rounded-[50%] cursor-pointer p-2"
+          className=" hover:bg-[#ced6e0] rounded-[50%] cursor-pointer p-2"
         >
-          <MdOutlineKeyboardArrowLeft size={25} color="white" />
+          <MdOutlineKeyboardArrowLeft size={25} color="#57606f" />
         </button>
-        <h1 className="text-white font-bold">{selectedDateTitle}</h1>
+        <h1 className="text-[#57606f] font-bold">{selectedDateTitle}</h1>
         <button
           disabled={disablePicking}
           onClick={onSelectNextDay}
-          className=" hover:bg-[#414141] rounded-[50%] cursor-pointer p-2"
+          className=" hover:bg-[#ced6e0] rounded-[50%] cursor-pointer p-2"
         >
-          <MdOutlineKeyboardArrowRight size={25} color="white" />
+          <MdOutlineKeyboardArrowRight size={25} color="#57606f" />
         </button>
       </div>
 
       <DayPicker onSelect={onChangeDate} value={date}>
         <button
           disabled={disablePicking}
-          className="!ml-3 h-[40px] w-[40px] bg-[#181818] rounded-[50%] flex items-center justify-center cursor-pointer hover:bg-[#414141]"
+          className="!ml-3 h-[40px] w-[40px] bg-[#ffff] rounded-[50%] flex items-center justify-center cursor-pointer hover:bg-[#ced6e0] border-[#57606f] border-1"
         >
-          <BsCalendar2Date size={20} color="white" />
+          <BsCalendar2Date size={20} color="#2f3542" />
         </button>
       </DayPicker>
     </div>

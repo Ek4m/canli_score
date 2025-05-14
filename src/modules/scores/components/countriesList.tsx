@@ -19,16 +19,16 @@ export const CountriesList = () => {
           role="button"
           onClick={() => setCountryId(country.id)}
           key={country.id}
-          className={`px-2 py-2 cursor-pointer hover:bg-[#414141]  flex items-center ${
-            countryId === country.id ? "bg-[#414141]" : "bg-[#181818]"
-          } rounded-[5px] !mb-1`}
+          className={`px-2 py-2 cursor-pointer hover:bg-[#a4b0be]  flex items-center ${
+            countryId === country.id ? "bg-[#a4b0be]" : "bg-[#ffff]"
+          } rounded-[5px] !mb-1 border-1 border-[#a4b0be]`}
         >
           <img
             className="w-[18px] h-[18px] object-contain"
             src={`/assets/flags/${country.id}.png`}
             alt="flag"
           />
-          <p className="!ml-2 text-xs text-white">{country.name}</p>
+          <p className="!ml-2 text-xs">{country.name}</p>
         </div>
       ))}
     </div>

@@ -13,7 +13,7 @@ export const ScoreMain = () => {
   return (
     <div className="lg:col-span-3 col-span-6 ">
       <MobileSearch />
-      <div className="rounded-lg border-1 border-[#414141] p-3 h-[100vh] overflow-y-scroll">
+      <div className="rounded-lg border-1 border-[#747d8c] p-3 h-[100vh] overflow-y-scroll">
         <DatePicker
           disablePicking={isFetching}
           date={date}

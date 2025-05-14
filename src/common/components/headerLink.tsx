@@ -15,9 +15,9 @@ export const HeaderLink: FC<HeaderLinkProps> = ({ title, href }) => {
       <Link
         className={`!text-[#cacaca] pb-1 ${
           pathname.startsWith(href)
-            ? "border-b-3 border-orange-400 !text-white font-bold"
+            ? "!text-white font-bold bg-[#A3C940] p-1 rounded-xs"
             : ""
-        }  hover:!text-white`}
+        }  hover:!text-white hover:border-b-1 hover:border-[#A3C940]`}
         href={href}
       >
         {title}

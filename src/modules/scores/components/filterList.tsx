@@ -9,7 +9,7 @@ export const FilterList: FC<FilterListProps> = ({ title, children }) => {
   return (
     <div className="!mb-4">
       <div className="flex justify-between items-center !mb-2">
-        <h6 className="text-[10px] text-[#cacaca] uppercase font-bold">
+        <h6 className="text-[10px] text-[#181818] uppercase font-bold">
           {title}
         </h6>
         <IoIosArrowForward color="white" size={15} />

@@ -28,13 +28,13 @@ export const LeagueMatchesOverview: FC<{
   }, [futureFixture]);
   return (
     <>
-      <h3 className="text-white uppercase !mb-2 text-xs font-bold">Results</h3>
+      <h3 className="text-[#2f3542] uppercase !mb-2 text-xs font-bold">Results</h3>
       {showPastFixture &&
         showPastFixture.matches.map((game) => (
           <LeagueListElement game={game} key={game.id} />
         ))}
       <br />
-      <h3 className="text-white uppercase !mb-2 text-xs font-bold">Fixtures</h3>
+      <h3 className="text-[#2f3542] uppercase !mb-2 text-xs font-bold">Fixtures</h3>
       {showFutureFixture &&
         showFutureFixture.matches.map((game) => (
           <LeagueListElement game={game} key={game.id} />
