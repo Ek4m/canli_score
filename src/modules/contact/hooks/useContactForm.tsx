@@ -1,11 +1,11 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 import { FailResponse, SuccessResponse } from "@/common/config/response";
 import { AuthContext } from "@/modules/auth/contexts";
 import { ContactFormDto } from "../types";
 import { ContactService } from "../services";
-import { useRouter } from "next/navigation";
 
 export const useContactForm = () => {
   const {
@@ -34,7 +34,6 @@ export const useContactForm = () => {
 
   useEffect(() => {
     if (user) {
-      console.log(user);
       setValue("email", user.email);
       setValue("name", user.firstName + " " + user.lastName);
     }

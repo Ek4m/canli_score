@@ -29,7 +29,6 @@ export class ScoreMapper {
       const value: string = match[key as keyof IMatchStats];
       if (!!value) {
         const valueArray = value.split(":").map((e) => parseInt(e));
-        console.log(valueArray);
         const sum = valueArray.reduce((a, b) => a + b, 0);
         result.push({
           label: this.labels[key as keyof typeof this.labels],
