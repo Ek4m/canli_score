@@ -20,9 +20,7 @@ export const ScoreMain = () => {
           onChangeDate={setDate}
         />
         {isFetching ? (
-          <div className="w-full min-h-[50vh] flex items-center justify-center">
-            <AppSpinner />
-          </div>
+          <AppSpinner />
         ) : (
           data?.map((league) => (
             <LeagueList key={league.competition.id} league={league} />

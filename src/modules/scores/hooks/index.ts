@@ -5,3 +5,4 @@ export * from "./useGetLeagueMatchesByDate";
 export * from "./useGetMatchesByLeague";
 export * from "./useGetLeagueTable";
 export * from "./useGetMatcheEvents";
+export * from "./useGetMatcheStats";

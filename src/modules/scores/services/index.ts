@@ -5,8 +5,10 @@ import {
   ILeagueTableMatch,
   ILiveLeague,
   IMatchEvent,
+  IMatchStatsPersist,
 } from "../types";
 import { httpClient } from "@/common/config/httpClient";
+import { ScoreMapper } from "../mappers";
 
 export class ScoresService {
   static async getCountries(): Promise<
@@ -104,6 +106,18 @@ export class ScoresService {
       const response = await httpClient.get("/match/event?match_id=" + id);
       const result = response.data;
       return new SuccessResponse(result);
+    } catch (error) {
+      console.log(error);
+      return new FailResponse("Something went wrong");
+    }
+  }
+  static async getMatchStats(
+    id: string
+  ): Promise<SuccessResponse<IMatchStatsPersist[]> | FailResponse> {
+    try {
+      const response = await httpClient.get("/match/static?match_id=" + id);
+      const result = response.data;
+      return new SuccessResponse(ScoreMapper.mapMatchStats(result));
     } catch (error) {
       console.log(error);
       return new FailResponse("Something went wrong");

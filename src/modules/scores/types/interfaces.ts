@@ -161,3 +161,33 @@ export interface IMatchEvent {
   };
   event: IEvent[];
 }
+
+export interface IMatchStats {
+  yellow_cards: string;
+  red_cards: string;
+  substitutions: string;
+  possesion: string;
+  free_kicks: string;
+  goal_kicks: string;
+  throw_ins: string;
+  offsides: string;
+  corners: string;
+  shots_on_target: string;
+  shots_off_target: string;
+  attempts_on_goal: string;
+  saves: string;
+  fauls: string;
+  treatments: string;
+  penalties: string;
+  shots_blocked: string;
+  dangerous_attacks: string;
+  attacks: string;
+}
+
+export interface IMatchStatsPersist {
+  home: { value: number; percent: number };
+  away: { value: number; percent: number };
+  winner: "h" | "a";
+  sum: number;
+  label: string;
+}
