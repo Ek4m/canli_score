@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, useMemo, useState } from "react";
 
 import { ILiveLeague } from "../types";
 import { LeagueListElement } from "./leagueListElem";
@@ -7,6 +7,7 @@ export const LeagueMatchesOverview: FC<{
   pastFixture: ILiveLeague[];
   futureFixture: ILiveLeague[];
 }> = ({ futureFixture, pastFixture }) => {
+  const [stage, setStage] = useState<"fixtures" | "results">("results");
   const showPastFixture = useMemo(() => {
     if (pastFixture)
       return {
@@ -28,14 +29,35 @@ export const LeagueMatchesOverview: FC<{
   }, [futureFixture]);
   return (
     <>
-      <h3 className="text-[#2f3542] uppercase !mb-2 text-xs font-bold">Results</h3>
+      <div className="!mb-3">
+        <button
+          onClick={() => setStage("results")}
+          className={`px-3 py-1 uppercase border-2  rounded-[5rem] !mr-2 text-sm cursor-pointer ${
+            stage === "results"
+              ? "text-[black] border-[black]"
+              : "text-[gray] border-[grey]"
+          }`}
+        >
+          Results
+        </button>
+        <button
+          onClick={() => setStage("fixtures")}
+          className={`px-3 py-1 uppercase border-2  rounded-[5rem] !mr-2 text-sm cursor-pointer ${
+            stage === "fixtures"
+              ? "text-[black] border-[black]"
+              : "text-[gray] border-[grey]"
+          }`}
+        >
+          Fixtures
+        </button>
+      </div>
       {showPastFixture &&
+        stage === "results" &&
         showPastFixture.matches.map((game) => (
           <LeagueListElement game={game} key={game.id} />
         ))}
-      <br />
-      <h3 className="text-[#2f3542] uppercase !mb-2 text-xs font-bold">Fixtures</h3>
       {showFutureFixture &&
+        stage === "fixtures" &&
         showFutureFixture.matches.map((game) => (
           <LeagueListElement game={game} key={game.id} />
         ))}

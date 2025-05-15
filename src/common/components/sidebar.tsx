@@ -49,11 +49,6 @@ export const Sidebar = () => {
               </Link>
             </li>
             <li className="!my-3">
-              <Link className="text-[white]" href="/advertise">
-                Advertise
-              </Link>
-            </li>
-            <li className="!my-3">
               <Link className="text-[white]" href="/privacy-policy">
                 Privacy Notice
               </Link>

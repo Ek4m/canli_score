@@ -12,7 +12,6 @@ export const AppFooter = () => {
         <HeaderLink href="/faq" title="FAQ" />
         <HeaderLink href="/contact" title="Contact" />
         <HeaderLink href="/privacy-policy" title="Privacy Notice" />
-        <HeaderLink href="/advertise" title="Advertise" />
       </ul>
     </footer>
   );
