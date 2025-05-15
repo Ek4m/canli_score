@@ -18,7 +18,7 @@ export const LeagueMatchesList = () => {
       {leagueMatches && (
         <div className="w-full">
           <LeagueBadge
-            league={leagueMatches?.futureFixture[0].competition}
+            league={leagueMatches?.pastFixture[0].competition}
             countryName={leagueMatches.pastFixture[0].matches[0].country.name}
           />
           <div className="flex items-center border-b-1 border-grey !mb-[1rem] pb-2">

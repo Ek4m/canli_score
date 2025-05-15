@@ -19,7 +19,7 @@ export const LeagueMatchesOverview: FC<{
   }, [pastFixture]);
 
   const showFutureFixture = useMemo(() => {
-    if (futureFixture)
+    if (futureFixture && !!futureFixture[0])
       return {
         ...futureFixture[0],
         matches: futureFixture[0].matches.filter(
@@ -40,16 +40,18 @@ export const LeagueMatchesOverview: FC<{
         >
           Results
         </button>
-        <button
-          onClick={() => setStage("fixtures")}
-          className={`px-3 py-1 uppercase border-2  rounded-[5rem] !mr-2 text-sm cursor-pointer ${
-            stage === "fixtures"
-              ? "text-[black] border-[black]"
-              : "text-[gray] border-[grey]"
-          }`}
-        >
-          Fixtures
-        </button>
+        {showFutureFixture && (
+          <button
+            onClick={() => setStage("fixtures")}
+            className={`px-3 py-1 uppercase border-2  rounded-[5rem] !mr-2 text-sm cursor-pointer ${
+              stage === "fixtures"
+                ? "text-[black] border-[black]"
+                : "text-[gray] border-[grey]"
+            }`}
+          >
+            Fixtures
+          </button>
+        )}
       </div>
       {showPastFixture &&
         stage === "results" &&
