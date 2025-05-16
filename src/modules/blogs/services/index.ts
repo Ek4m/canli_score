@@ -17,7 +17,7 @@ export class BlogsService {
     id: string
   ): Promise<SuccessResponse<IBlog> | FailResponse> {
     try {
-      const res = await httpClient.get("/blogs/" + id);
+      const res = await httpClient.put("/blogs/" + id);
       return new SuccessResponse(res.data);
     } catch (error) {
       console.log(error);
