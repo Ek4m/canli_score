@@ -8,7 +8,7 @@ import { Sidebar } from "./sidebar";
 export const AppHeader = () => {
   return (
     <header
-      className={`flex justify-between items-center px-8 bg-[#001e28] border-b-1 border-[#414141]`}
+      className={`flex justify-between items-center px-8 bg-[#001e28] border-b-3 border-[#A3C940]`}
     >
       <div className="flex items-center">
         <MainLogo />

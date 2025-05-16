@@ -1,7 +1,8 @@
 import Axios from "axios";
+import { API_URL } from "../constants/globals";
 
 const httpClient = Axios.create({
-  baseURL: "https://canliscore.az/api",
+  baseURL: `${API_URL}/api`,
 });
 
 httpClient.interceptors.request.use((config) => {

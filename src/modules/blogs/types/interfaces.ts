@@ -3,7 +3,8 @@ export interface IBlog {
   title: string;
   content: string;
   category: string;
+  coverImage: string;
   tags: string[];
-  createdAt	: string;
-  updatedAt	: string;
+  createdAt: string;
+  updatedAt: string;
 }
